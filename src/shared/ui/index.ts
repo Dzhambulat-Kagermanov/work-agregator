@@ -1,8 +1,5 @@
-export {
-	UiTypography,
-	type TUiTypographyProps,
-	type TUiTypographyTextProps,
-} from './UiTypography'
+export { UiTypography, type TUiTypographyProps, type TUiTypographyTextProps } from './UiTypography'
 export { UiInput, type TUiInputProps } from './UiInput'
 export { UiContainer, type TUiContainerProps } from './UiContainer'
-export { UiPortalWrapper } from './UiPortalWrapper'
+export { UiPortalWrapper, type TUiPortalWrapperProps } from './UiPortalWrapper'
+export { UiModal, type TUiModalProps } from './UiModal'
