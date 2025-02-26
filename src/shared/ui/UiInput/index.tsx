@@ -1,38 +1,12 @@
 import { cn } from '@/shared/lib'
 import { FC, InputHTMLAttributes, ReactNode } from 'react'
 
-const labelCls = 'flex gap-2 items-center text-sm'
 const inputCls =
-	'min-w-[50px] w-full flex-1 focus:outline-none font-ubuntu font-normal text-[inherit] text-blackBase bg-transparent placeholder:font-[inherit] placeholder:text-[inherit] placeholder:text-blackBase-50'
+  'font-plusJakarta text-lg placeholder:text-lg placeholder:text-greyBase py-5 px-[10px] border-[1px] border-solid border-blue100 rounded-[25px]'
 
-interface TUiInputProps extends InputHTMLAttributes<HTMLInputElement> {
-	inputClassName?: string
-	icon?: { place: 'before' | 'after'; content: ReactNode }
-	theme: 'fill' | 'line'
-}
-const UiInput: FC<TUiInputProps> = ({
-	theme,
-	icon,
-	className,
-	inputClassName,
-	...inpProps
-}) => {
-	let inputThemeCls: string
-
-	if (theme === 'fill') {
-		inputThemeCls = 'bg-grey100 py-1 px-2.5 rounded-md'
-	} else {
-		inputThemeCls =
-			'border-b-[1px] border-b-solid border-b-blackBase-50 pb-1.5 px-0.5'
-	}
-
-	return (
-		<label className={cn([labelCls, inputThemeCls, className])}>
-			{icon && icon.place === 'after' && icon.content}
-			<input {...inpProps} className={cn([inputCls, inputClassName])} />
-			{icon && icon.place === 'before' && icon.content}
-		</label>
-	)
+interface TUiInputProps extends InputHTMLAttributes<HTMLInputElement> {}
+const UiInput: FC<TUiInputProps> = ({ className, ...inpProps }) => {
+  return <input {...inpProps} className={cn([inputCls, className])} />
 }
 
 export { UiInput, type TUiInputProps }

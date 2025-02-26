@@ -13,9 +13,27 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        // BLACK
+        blackBase: '#000',
+        blackBase80: 'rgba(0,0,0,0.8)',
+        // WHITE
+        whiteBase: '#fff',
+        // GREY
+        greyBase: '#A19A9A',
+        grey100: '#EBEBEB',
+        // BLUE
+        blueBase: '#0057FF',
+        blueBaseH: '#003FB9',
+        blueBaseA: '#004CE0',
+        blue100: '#4972EC',
+        // DARKBLUE
+        darkBlueBase: '#1A1F2E',
+        darkBlue100: '#2A303C',
+      },
       fontFamily: {
         drukWideCyr: ['DrukWideCyr', 'sans-serif'],
+        plusJakarta: ['PlusJakartaSans', 'sans-serif'],
       },
       boxShadow: {},
     },

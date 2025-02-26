@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer {
+  @font-face {
+    font-family: DrukWideCyr;
+    src:
+      local('Druk Wide Cyr'),
+      url(/fonts/DrukWideCyr.woff2) format(woff2);
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: PlusJakartaSans;
+    src:
+      local('Plus Jakarta Sans'),
+      url(/fonts/PlusJakartaSans.woff2) format(woff2);
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+  }
+  button {
+    display: block;
+  }
+  input:focus {
+    outline: none;
+  }
+}

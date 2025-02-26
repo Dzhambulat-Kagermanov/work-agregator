@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 
 export type TModalSlug = { slug: string }
 
@@ -7,7 +8,7 @@ export interface TUseModals {
     string,
     {
       mountedState?: boolean
-      transitionState?: boolean
+      visibleState?: boolean
       unmountDelay?: number
       unmountStateTimerId?: ReturnType<typeof setTimeout>
     }
@@ -17,75 +18,81 @@ export interface TUseModals {
   changeUnmountDelay: (params: { unmountDelay?: number } & TModalSlug) => void
 }
 
-export const useModals = create<TUseModals>()((set, get) => ({
-  modalsState: {},
-  hideModal: ({ slug }) => {
-    set((state) => ({
-      modalsState: {
-        ...state.modalsState,
-        [slug]: { ...state.modalsState[slug], transitionState: false },
-      },
-    }))
-    const unmountStateTimerId = setTimeout(() => {
+export const useModals = create<TUseModals>()(
+  devtools((set, get) => ({
+    modalsState: {},
+    hideModal: ({ slug }) => {
       set((state) => ({
         modalsState: {
           ...state.modalsState,
-          [slug]: { ...state.modalsState[slug], mountedState: false },
+          [slug]: { ...state.modalsState[slug], visibleState: false },
         },
       }))
-      set((state) => ({
-        modalsState: {
-          ...state.modalsState,
-          [slug]: {
-            ...state.modalsState[slug],
-            unmountStateTimerId: undefined,
+      const unmountStateTimerId = setTimeout(() => {
+        set((state) => ({
+          modalsState: {
+            ...state.modalsState,
+            [slug]: { ...state.modalsState[slug], mountedState: false },
           },
-        },
-      }))
-    }, get().modalsState[slug].unmountDelay || 0)
+        }))
+        set((state) => ({
+          modalsState: {
+            ...state.modalsState,
+            [slug]: {
+              ...state.modalsState[slug],
+              unmountStateTimerId: undefined,
+            },
+          },
+        }))
+      }, get().modalsState[slug].unmountDelay || 0)
 
-    set((state) => ({
-      modalsState: {
-        ...state.modalsState,
-        [slug]: { ...state.modalsState[slug], unmountStateTimerId },
-      },
-    }))
-  },
-  showModal: ({ slug }) => {
-    const unmountStateTimerId = get().modalsState[slug].unmountStateTimerId
-    if (unmountStateTimerId !== undefined) {
-      clearTimeout(unmountStateTimerId)
+      console.log(unmountStateTimerId, 0)
       set((state) => ({
         modalsState: {
           ...state.modalsState,
-          [slug]: {
-            ...state.modalsState[slug],
-            unmountStateTimerId: undefined,
+          [slug]: { ...state.modalsState[slug], unmountStateTimerId },
+        },
+      }))
+    },
+    showModal: ({ slug }) => {
+      const unmountStateTimerId = get().modalsState[slug]?.unmountStateTimerId
+      console.log(unmountStateTimerId, 1)
+
+      if (unmountStateTimerId !== undefined) {
+        console.log(unmountStateTimerId, 2)
+        clearTimeout(unmountStateTimerId)
+        set((state) => ({
+          modalsState: {
+            ...state.modalsState,
+            [slug]: {
+              ...state.modalsState[slug],
+              unmountStateTimerId: undefined,
+            },
           },
-        },
-      }))
-    }
-    setTimeout(() => {
+        }))
+      }
+      setTimeout(() => {
+        set((state) => ({
+          modalsState: {
+            ...state.modalsState,
+            [slug]: { ...state.modalsState[slug], visibleState: true },
+          },
+        }))
+      }, 0)
       set((state) => ({
         modalsState: {
           ...state.modalsState,
-          [slug]: { ...state.modalsState[slug], transitionState: true },
+          [slug]: { ...state.modalsState[slug], mountedState: true },
         },
       }))
-    }, 0)
-    set((state) => ({
-      modalsState: {
-        ...state.modalsState,
-        [slug]: { ...state.modalsState[slug], mountedState: true },
-      },
-    }))
-  },
-  changeUnmountDelay: ({ unmountDelay, slug }) => {
-    set((state) => ({
-      modalsState: {
-        ...state.modalsState,
-        [slug]: { ...state.modalsState[slug], unmountDelay },
-      },
-    }))
-  },
-}))
+    },
+    changeUnmountDelay: ({ unmountDelay, slug }) => {
+      set((state) => ({
+        modalsState: {
+          ...state.modalsState,
+          [slug]: { ...state.modalsState[slug], unmountDelay },
+        },
+      }))
+    },
+  })),
+)
