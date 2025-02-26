@@ -1,22 +1,24 @@
 import { cn } from '@/shared/lib'
 import { FC, InputHTMLAttributes, ReactNode } from 'react'
 import { UiTypography } from '../UiTypography'
+import { ClipIcon } from '@/shared/icons'
 
 const wrapperCls = ''
 const labelCls = 'text-darkBlue100'
-const inputCls = 'w-full font-plusJakarta text-lg placeholder:text-lg placeholder:text-greyBase flex-1'
+const inputCls = 'hidden'
 const inputErrorCls = 'border-redBase'
 const errorCls = 'text-redBase'
 const inputWrapperCls =
-  'flex items-center gap-x-2 py-4 px-[18px] border-[1px] border-solid border-blue100 rounded-[25px]'
+  'flex justify-between items-center gap-x-2 py-4 px-[18px] border-[1px] border-dashed border-blue100 rounded-[25px] cursor-pointer'
+const placeholderCls = 'text-lg text-greyBase'
 
-interface TUiInputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TUiFileInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string
   errorMessage?: string
   inputBeforeContent?: ReactNode
   inputWrapperClassName?: string
 }
-const UiInput: FC<TUiInputProps> = ({
+const UiFileInput: FC<TUiFileInputProps> = ({
   className,
   label,
   errorMessage,
@@ -31,15 +33,19 @@ const UiInput: FC<TUiInputProps> = ({
           {label}
         </UiTypography>
       )}
-      <div className={cn([inputWrapperCls, inputWrapperClassName])}>
-        {inputBeforeContent}
+      <label className={cn([inputWrapperCls, inputWrapperClassName])}>
         <input
+          type="file"
           {...inpProps}
           className={cn([inputCls, className], {
             [inputErrorCls]: !!errorMessage,
           })}
         />
-      </div>
+        <UiTypography font="PlusJakartaSans-R" tag="p" className={placeholderCls}>
+          Выбрать файл
+        </UiTypography>
+        <ClipIcon />
+      </label>
       {errorMessage && (
         <UiTypography font="PlusJakartaSans-R" tag="p" className={errorCls}>
           {errorMessage}
@@ -49,4 +55,4 @@ const UiInput: FC<TUiInputProps> = ({
   )
 }
 
-export { UiInput, type TUiInputProps }
+export { UiFileInput, type TUiFileInputProps }

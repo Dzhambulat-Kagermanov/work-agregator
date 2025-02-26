@@ -10,3 +10,4 @@ export { UiVerificationInput, type TUiVerificationInputProps } from './UiVerific
 export { UiDropdown, type TUiDropdownProps, type TUiDropdownItem } from './UiDropdown'
 export { UiInputMaskSwitch, type TUiInputMaskSwitchProps } from './UiInputMaskSwitch'
 export { UiInputMask, type TUiInputMaskProps } from './UiInputMask'
+export { UiFileInput, type TUiFileInputProps } from './UiFileInput'
