@@ -12,7 +12,8 @@ import Link from 'next/link'
 import { FormTypeSwitcher } from './FormTypeSwitcher'
 import { VerificationBlock } from './VerificationBlock'
 
-const wrapperCls = 'w-full bg-whiteBase p-5 min-h-full'
+const wrapperCls =
+  'w-full zero:max-w-none xs-big:max-w-[470px] xs-big:rounded-[35px] bg-whiteBase p-5 zero:min-h-full xs-big:min-h-[auto]'
 const formCls = ''
 const titleCls = 'text-[32px] mt-[30px] mb-[55px]'
 const closeBtnCls = 'sticky m-5 ml-auto'
