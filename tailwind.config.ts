@@ -30,6 +30,8 @@ export default {
         // DARKBLUE
         darkBlueBase: '#1A1F2E',
         darkBlue100: '#2A303C',
+        // RED
+        redBase: '#EC1C24',
       },
       fontFamily: {
         drukWideCyr: ['DrukWideCyr', 'sans-serif'],

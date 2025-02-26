@@ -1,0 +1,42 @@
+.label {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  --main-color: #000;
+}
+.label:has(.inp:disabled) {
+  cursor: not-allowed;
+  --main-color: #9a8f8f;
+}
+.label p {
+  color: var(--main-color);
+}
+.inp {
+  cursor: pointer;
+  border: 1px solid var(--main-color);
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inp::before {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  display: block;
+  content: '';
+  background-image: url('/images/vectors/shared/checkMark.svg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: 120ms transform ease-in-out;
+  transform-origin: bottom left;
+  transform: scale(0);
+}
+.inp:checked::before {
+  transform: scale(1);
+}
