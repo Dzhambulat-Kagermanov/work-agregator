@@ -1,3 +1,5 @@
 export { CloseIcon } from './CloseIcon'
 export { CheckMarkIcon } from './CheckMarkIcon'
 export { ClipIcon } from './ClipIcon'
+export { MarkArrowIcon } from './MarkArrowIcon'
+export { RussianFlagIcon } from './RussianFlagIcon'

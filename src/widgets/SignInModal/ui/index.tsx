@@ -1,7 +1,7 @@
 'use client'
 import { FC, FormEventHandler, MouseEventHandler, useCallback, useState } from 'react'
 import { TClassName } from '@/shared/types'
-import { UiBlocksSwitcher, UiButton, UiModal, UiStepperLine, UiTypography } from '@/shared/ui'
+import { UiButton, UiDropdown, UiModal, UiStepperLine, UiTypography } from '@/shared/ui'
 import { cn } from '@/shared/lib'
 import { SIGN_IN_MODAL } from '@/shared/constants'
 import { CloseModalButton } from '@/features/CloseModalButton'

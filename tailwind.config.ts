@@ -22,6 +22,7 @@ export default {
         // GREY
         greyBase: '#A19A9A',
         grey100: '#EBEBEB',
+        grey100H: '#DCDCDC',
         // BLUE
         blueBase: '#0057FF',
         blueBaseH: '#003FB9',

@@ -1,6 +1,7 @@
 import { cn } from '@/shared/lib'
 import { FC, InputHTMLAttributes, ReactNode } from 'react'
 import { UiTypography } from '../UiTypography'
+import { IMaskInput, IMaskInputProps } from 'react-imask'
 
 const wrapperCls = ''
 const labelCls = 'text-darkBlue100'
@@ -10,17 +11,19 @@ const errorCls = 'text-redBase'
 const inputWrapperCls =
   'flex items-center gap-x-2 py-4 px-[10px] border-[1px] border-solid border-blue100 rounded-[25px]'
 
-interface TUiInputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TUiInputMaskProps extends Omit<IMaskInputProps<HTMLInputElement>, 'value'> {
   label?: string
   errorMessage?: string
   inputBeforeContent?: ReactNode
   inputWrapperClassName?: string
+  lazy?: boolean
 }
-const UiInput: FC<TUiInputProps> = ({
+const UiInputMask: FC<TUiInputMaskProps> = ({
   className,
   label,
   errorMessage,
   inputBeforeContent,
+  lazy,
   inputWrapperClassName,
   ...inpProps
 }) => {
@@ -33,7 +36,9 @@ const UiInput: FC<TUiInputProps> = ({
       )}
       <div className={cn([inputWrapperCls, inputWrapperClassName])}>
         {inputBeforeContent}
-        <input
+        {/* @ts-ignore */}
+        <IMaskInput
+          lazy={lazy}
           {...inpProps}
           className={cn([inputCls, className], {
             [inputErrorCls]: !!errorMessage,
@@ -49,4 +54,4 @@ const UiInput: FC<TUiInputProps> = ({
   )
 }
 
-export { UiInput, type TUiInputProps }
+export { UiInputMask, type TUiInputMaskProps }
