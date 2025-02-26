@@ -45,8 +45,6 @@ export const useModals = create<TUseModals>()(
           },
         }))
       }, get().modalsState[slug].unmountDelay || 0)
-
-      console.log(unmountStateTimerId, 0)
       set((state) => ({
         modalsState: {
           ...state.modalsState,
@@ -56,10 +54,7 @@ export const useModals = create<TUseModals>()(
     },
     showModal: ({ slug }) => {
       const unmountStateTimerId = get().modalsState[slug]?.unmountStateTimerId
-      console.log(unmountStateTimerId, 1)
-
       if (unmountStateTimerId !== undefined) {
-        console.log(unmountStateTimerId, 2)
         clearTimeout(unmountStateTimerId)
         set((state) => ({
           modalsState: {

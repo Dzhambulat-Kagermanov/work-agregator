@@ -6,7 +6,7 @@ import { ButtonHTMLAttributes, FC, MouseEventHandler } from 'react'
 
 const wrapperCls = 'duration-100 hover:scale-[1.1]'
 
-interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'>, TModalSlug {}
+interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'type'>, TModalSlug {}
 const CloseModalButton: FC<Props> = ({ className, onClick, slug, ...btnProps }) => {
   const hideModal = useModals((state) => state.hideModal)
   const handleClose: MouseEventHandler<HTMLButtonElement> = (event) => {
@@ -15,7 +15,7 @@ const CloseModalButton: FC<Props> = ({ className, onClick, slug, ...btnProps }) 
   }
 
   return (
-    <button onClick={handleClose} className={cn([wrapperCls, className])} {...btnProps}>
+    <button type="button" onClick={handleClose} className={cn([wrapperCls, className])} {...btnProps}>
       <CloseIcon fill={getTailwindColor('blackBase')} />
     </button>
   )

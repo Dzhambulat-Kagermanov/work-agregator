@@ -49,6 +49,7 @@ const UiBlocksSwitcher: FC<TUiBlocksSwitcherProps> = ({
       {items.map(({ content, onSelect, value }) => {
         return (
           <div
+            key={value}
             onClick={() => {
               onSelect && onSelect()
               onChange && onChange(value)
