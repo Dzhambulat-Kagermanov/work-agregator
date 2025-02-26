@@ -13,7 +13,8 @@ import { VerificationBlock } from './VerificationBlock'
 import { UiCheckbox } from '@/shared/ui/UiCheckbox'
 import { UserDataContent } from './UserDataContent'
 
-const wrapperCls = 'w-full bg-whiteBase p-4 min-h-full'
+const wrapperCls =
+  'w-full zero:max-w-none xs-big:max-w-[470px] xs-big:rounded-[35px] bg-whiteBase p-4 zero:min-h-full xs-big:min-h-[auto]'
 const formCls = ''
 const titleCls = 'text-[32px] mt-[20px] mb-[35px]'
 const closeBtnCls = 'sticky m-5 ml-auto'
