@@ -10,6 +10,7 @@ import { EmailContent } from './EmailContent'
 import { PhoneContent } from './PhoneContent'
 import Link from 'next/link'
 import { FormTypeSwitcher } from './FormTypeSwitcher'
+import { VerificationBlock } from './VerificationBlock'
 
 const wrapperCls = 'w-full bg-whiteBase p-5 min-h-full'
 const formCls = ''
@@ -47,6 +48,11 @@ const SignInModal: FC<Props> = ({ className }) => {
     [currentStep],
   )
 
+  const descriptionMessage: string =
+    currentStep === 1
+      ? `Мы отправим вам СМС код на ${formType === EnFormType.email ? 'вашу почту' : 'вашу номер телефона'}`
+      : `Код был отправлен на ${formType === EnFormType.email ? 'указанную почту' : 'указанный телефон'}`
+
   return (
     <UiModal
       onClose={handleModalClose}
@@ -64,11 +70,17 @@ const SignInModal: FC<Props> = ({ className }) => {
         {currentStep === 1 ? <FormTypeSwitcher setFormType={setFormType} /> : null}
         <UiStepperLine className={stepperLineCls} current={currentStep} steps={2} />
         <UiTypography font="PlusJakartaSans-R" tag="h2" className={messageInfoCls}>
-          {currentStep === 1
-            ? `Мы отправим вам СМС код на ${formType === EnFormType.email ? 'вашу почту' : 'вашу номер телефона'}`
-            : `Код был отправлен на ${formType === EnFormType.email ? 'указанную почту' : 'указанный телефон'}`}
+          {descriptionMessage}
         </UiTypography>
-        {formType === EnFormType.email ? <EmailContent /> : <PhoneContent />}
+        {currentStep === 1 ? (
+          formType === EnFormType.email ? (
+            <EmailContent />
+          ) : (
+            <PhoneContent />
+          )
+        ) : (
+          <VerificationBlock />
+        )}
         <UiButton wFull type="submit" theme="fill" className={getMessageCls}>
           <UiTypography font="PlusJakartaSans-R" tag="p">
             {currentStep === 1 ? 'Получить СМС' : 'Подтвердить'}
