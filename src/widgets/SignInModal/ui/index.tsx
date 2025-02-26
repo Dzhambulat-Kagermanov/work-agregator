@@ -13,13 +13,13 @@ import { FormTypeSwitcher } from './FormTypeSwitcher'
 import { VerificationBlock } from './VerificationBlock'
 
 const wrapperCls =
-  'w-full zero:max-w-none xs-big:max-w-[470px] xs-big:rounded-[35px] bg-whiteBase p-5 zero:min-h-full xs-big:min-h-[auto]'
+  'w-full zero:max-w-none xs-big:max-w-[470px] xs-big:rounded-[35px] bg-whiteBase p-4 zero:min-h-full xs-big:min-h-[auto]'
 const formCls = ''
-const titleCls = 'text-[32px] mt-[30px] mb-[55px]'
+const titleCls = 'text-[32px] mt-[20px] mb-[35px]'
 const closeBtnCls = 'sticky m-5 ml-auto'
 const stepperLineCls = 'w-full max-w-[334px] mt-[30px]'
 const messageInfoCls = 'text-xl my-[30px]'
-const getMessageCls = 'mt-[40px] mb-[15px]'
+const getMessageCls = 'mt-[30px] mb-[15px]'
 const messageNotComeCls = 'text-blueBase text-center'
 
 const SLUG = SIGN_IN_MODAL

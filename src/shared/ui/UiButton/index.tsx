@@ -3,7 +3,7 @@ import { cn } from '@/shared/lib'
 
 const wrapperCls = ''
 const wrapperFillThemeCls =
-  'rounded-[25px] bg-blueBase text-whiteBase hover:bg-blueBaseH active:bg-blueBaseA duration-150 py-5 px-8 text-2xl'
+  'rounded-[25px] bg-blueBase text-whiteBase hover:bg-blueBaseH active:bg-blueBaseA duration-150 py-4 px-6 text-2xl'
 
 interface TUiButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme: 'fill'
