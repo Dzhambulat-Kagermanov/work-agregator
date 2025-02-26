@@ -6,7 +6,7 @@ import { cn } from '@/shared/lib'
 const wrapperCls = 'border-greyBase border-[1px] border-solid rounded-[30px] relative flex overflow-hidden min-h-[65px]'
 const itemCls = 'relative flex-1 text-darkBlueBase duration-100 transition-colors cursor-pointer'
 const itemActiveCls = 'text-whiteBase rounded-[27px] cursor-default'
-const activeMarkerCls = 'bg-blueBase absolute top-0 bottom-0 rounded-[inherit]  duration-500'
+const activeMarkerCls = 'bg-blueBase absolute top-0 bottom-0 rounded-[inherit]  duration-1000'
 
 type TUiBlocksSwitcherItem = { content: ReactNode; onSelect?: () => void; value: string }
 
