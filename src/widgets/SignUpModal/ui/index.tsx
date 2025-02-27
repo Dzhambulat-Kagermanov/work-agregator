@@ -35,6 +35,8 @@ interface Props extends TClassName {}
 const SignUpModal: FC<Props> = ({ className }) => {
   const [formType, setFormType] = useState<EnFormType>(EnFormType.phone)
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1)
+  const [confirmDataProcessingVal, setConfirmDataProcessingVal] = useState<boolean>(false)
+  const [confidentialityPolicyVal, setConfidentialityPolicyVal] = useState<boolean>(false)
 
   const handleModalClose: MouseEventHandler = () => {
     setTimeout(() => {
@@ -96,11 +98,31 @@ const SignUpModal: FC<Props> = ({ className }) => {
         )}
         {currentStep === 1 ? (
           <>
-            <UiCheckbox className="mt-[30px] mb-[10px]" label="Я даю согласие на обработку данных" />
-            <UiCheckbox className="mb-[30px]" label="Я соглашаюсь с  политикой сервиса" />
+            <UiCheckbox
+              defaultChecked={confirmDataProcessingVal}
+              onChange={() => {
+                setConfirmDataProcessingVal((cur) => !cur)
+              }}
+              className="mt-[30px] mb-[10px]"
+              label="Я даю согласие на обработку данных"
+            />
+            <UiCheckbox
+              defaultChecked={confidentialityPolicyVal}
+              onChange={() => {
+                setConfidentialityPolicyVal((cur) => !cur)
+              }}
+              className="mb-[30px]"
+              label="Я соглашаюсь с  политикой сервиса"
+            />
           </>
         ) : null}
-        <UiButton wFull type="submit" theme="fill" className={getMessageCls}>
+        <UiButton
+          disabled={!confirmDataProcessingVal || !confidentialityPolicyVal}
+          wFull
+          type="submit"
+          theme="fill"
+          className={getMessageCls}
+        >
           <UiTypography font="Montserrat-R" tag="p">
             {currentStep === 1 ? 'Получить СМС' : currentStep === 2 ? 'Далее' : 'Войти'}
           </UiTypography>
