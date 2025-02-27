@@ -11,7 +11,7 @@ const UserDataContent: FC<Props> = ({ className }) => {
     <div className={cn([wrapperCls, className])}>
       <UiInput placeholder="Иван" label="*Имя" errorMessage="Ошибка" />
       <UiInput placeholder="Иванов" label="Фамилия" errorMessage="Ошибка" />
-      <UiFileInput placeholder="Выбрать файл" label="Аватар" />
+      <UiFileInput placeholder="Выбрать файл" label="Аватар" accept="image/png,image/jpg,image/webp" />
     </div>
   )
 }
