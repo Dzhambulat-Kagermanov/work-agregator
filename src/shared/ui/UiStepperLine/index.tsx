@@ -29,7 +29,7 @@ const UiStepperLine: FC<TUiStepperLineProps> = ({
 }) => {
   return (
     <Tag className={cn([wrapperCls, className])}>
-      <UiTypography font="PlusJakartaSans-R" tag="p" className={cn([labelCls, labelClassName])}>
+      <UiTypography font="Montserrat-R" tag="p" className={cn([labelCls, labelClassName])}>
         {generateLabel ? generateLabel({ current, steps }) : `Шаг ${current} из ${steps}`}
       </UiTypography>
       <div className={cn([lineCls, lineClassName])}>

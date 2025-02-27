@@ -18,7 +18,7 @@ const PhoneContent: FC<Props> = ({ className }) => {
         return {
           value: key,
           content: (
-            <UiTypography font="PlusJakartaSans-B" tag="p" className={maskItemCls}>
+            <UiTypography font="Montserrat-B" tag="p" className={maskItemCls}>
               {phoneMasks[key].prefix}
             </UiTypography>
           ),

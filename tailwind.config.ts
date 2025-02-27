@@ -36,7 +36,7 @@ export default {
       },
       fontFamily: {
         drukWideCyr: ['DrukWideCyr', 'sans-serif'],
-        plusJakarta: ['PlusJakartaSans', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
       boxShadow: {},
     },

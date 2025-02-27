@@ -16,7 +16,7 @@ const UiCheckbox: FC<Props> = ({ label, className, inputClassName, labelClassNam
     <label className={cn([wrapperCls, className])}>
       <input type="checkbox" {...inpProps} className={cn([inputClassName, inpCls])} />
       {label && (
-        <UiTypography font="PlusJakartaSans-R" tag="p" className={cn([labelCls, labelClassName])}>
+        <UiTypography font="Montserrat-R" tag="p" className={cn([labelCls, labelClassName])}>
           {label}
         </UiTypography>
       )}

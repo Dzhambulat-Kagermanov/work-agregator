@@ -1,11 +1,11 @@
 import { cn } from '@/shared/lib'
-import { FC, InputHTMLAttributes, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import { UiTypography } from '../UiTypography'
 import { IMaskInput, IMaskInputProps } from 'react-imask'
 
 const wrapperCls = ''
 const labelCls = 'text-darkBlue100'
-const inputCls = 'w-full font-plusJakarta text-lg placeholder:text-lg placeholder:text-greyBase flex-1'
+const inputCls = 'w-full font-montserrat text-lg placeholder:text-lg placeholder:text-greyBase flex-1'
 const inputErrorCls = 'border-redBase'
 const errorCls = 'text-redBase'
 const inputWrapperCls =
@@ -30,7 +30,7 @@ const UiInputMask: FC<TUiInputMaskProps> = ({
   return (
     <div className={cn([wrapperCls, className])}>
       {label && (
-        <UiTypography font="PlusJakartaSans-R" tag="p" className={labelCls}>
+        <UiTypography font="Montserrat-R" tag="p" className={labelCls}>
           {label}
         </UiTypography>
       )}
@@ -46,7 +46,7 @@ const UiInputMask: FC<TUiInputMaskProps> = ({
         />
       </div>
       {errorMessage && (
-        <UiTypography font="PlusJakartaSans-R" tag="p" className={errorCls}>
+        <UiTypography font="Montserrat-R" tag="p" className={errorCls}>
           {errorMessage}
         </UiTypography>
       )}

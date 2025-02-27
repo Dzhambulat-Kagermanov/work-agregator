@@ -27,7 +27,7 @@ const FormTypeSwitcher: FC<Props> = ({ className, setFormType }) => {
       items={[
         {
           content: (
-            <UiTypography font="PlusJakartaSans-R" tag="p" className={itemTextCls}>
+            <UiTypography font="Montserrat-R" tag="p" className={itemTextCls}>
               Телефон
             </UiTypography>
           ),
@@ -36,7 +36,7 @@ const FormTypeSwitcher: FC<Props> = ({ className, setFormType }) => {
         },
         {
           content: (
-            <UiTypography font="PlusJakartaSans-R" tag="p" className={itemTextCls}>
+            <UiTypography font="Montserrat-R" tag="p" className={itemTextCls}>
               Почта
             </UiTypography>
           ),

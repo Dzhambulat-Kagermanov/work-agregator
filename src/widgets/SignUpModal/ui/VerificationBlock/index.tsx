@@ -10,8 +10,8 @@ interface Props extends TClassName {}
 const VerificationBlock: FC<Props> = ({ className }) => {
   return (
     <div className={cn([wrapperCls, className])}>
-      <UiTypography font="PlusJakartaSans-R" tag="h4" className={textCls}>
-        Подтверждение
+      <UiTypography font="Montserrat-R" tag="h4" className={textCls}>
+        Введите полученный код
       </UiTypography>
       <UiVerificationInput className="mt-2" length={6} />
     </div>

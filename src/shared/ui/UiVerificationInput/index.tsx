@@ -11,9 +11,19 @@ const characterInactiveCls = 'border-grey100'
 const characterSelectedCls = 'outline-none'
 
 interface TUiVerificationInputProps extends Omit<VerificationInputProps, 'classNames'>, TClassName {}
-const UiVerificationInput: FC<TUiVerificationInputProps> = ({ placeholder = '', className, ...inpProps }) => {
+const UiVerificationInput: FC<TUiVerificationInputProps> = ({
+  placeholder = '',
+  className,
+  inputProps,
+  ...inpProps
+}) => {
   return (
     <VerificationInput
+      inputProps={{
+        autoComplete: 'one-time-code',
+        inputMode: 'numeric',
+        ...inputProps,
+      }}
       classNames={{
         character: characterCls,
         characterFilled: characterFilled,

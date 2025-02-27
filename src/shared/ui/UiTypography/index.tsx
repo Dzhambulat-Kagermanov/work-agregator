@@ -1,7 +1,7 @@
 import { TDynamicTagProps } from '@/shared/types'
 
 type TUiTypographyTextProps = {
-  font: 'DrukWideCyr-B' | 'PlusJakartaSans-B' | 'PlusJakartaSans-R'
+  font: 'DrukWideCyr-B' | 'Montserrat-B' | 'Montserrat-R'
 }
 type TUiTypographyProps = TDynamicTagProps<TUiTypographyTextProps>
 type TFontInfo = [string, 'T' | 'EL' | 'L' | 'R' | 'M' | 'SB' | 'B' | 'EB' | 'BL' | 'HE']

@@ -12,16 +12,16 @@ interface Props extends TClassName {}
 const AuthFormFooter: FC<Props> = ({ className }) => {
   return (
     <div className={cn([wrapperCls, className])}>
-      <UiTypography font="PlusJakartaSans-R" tag="p" className={textCls}>
+      <UiTypography font="Montserrat-R" tag="p" className={textCls}>
         Еще нет аккаунта?{' '}
         <Link href={'#'} className={cn([textCls, linkCls])}>
-          <UiTypography font="PlusJakartaSans-B" tag="span">
+          <UiTypography font="Montserrat-B" tag="span">
             Регистрация
           </UiTypography>
         </Link>
       </UiTypography>
       <Link href={'#'} className={cn([textCls, linkCls, 'mt-4'])}>
-        <UiTypography font="PlusJakartaSans-B" tag="p">
+        <UiTypography font="Montserrat-B" tag="p">
           Проблема при входе?
         </UiTypography>
       </Link>

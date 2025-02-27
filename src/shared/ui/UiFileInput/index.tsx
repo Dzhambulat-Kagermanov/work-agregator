@@ -29,7 +29,7 @@ const UiFileInput: FC<TUiFileInputProps> = ({
   return (
     <div className={cn([wrapperCls, className])}>
       {label && (
-        <UiTypography font="PlusJakartaSans-R" tag="p" className={labelCls}>
+        <UiTypography font="Montserrat-R" tag="p" className={labelCls}>
           {label}
         </UiTypography>
       )}
@@ -41,13 +41,13 @@ const UiFileInput: FC<TUiFileInputProps> = ({
             [inputErrorCls]: !!errorMessage,
           })}
         />
-        <UiTypography font="PlusJakartaSans-R" tag="p" className={placeholderCls}>
+        <UiTypography font="Montserrat-R" tag="p" className={placeholderCls}>
           Выбрать файл
         </UiTypography>
         <ClipIcon />
       </label>
       {errorMessage && (
-        <UiTypography font="PlusJakartaSans-R" tag="p" className={errorCls}>
+        <UiTypography font="Montserrat-R" tag="p" className={errorCls}>
           {errorMessage}
         </UiTypography>
       )}

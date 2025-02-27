@@ -13,7 +13,7 @@ const UiCheckbox: FC<Props> = ({ className, label, inpCls, ...other }) => {
     <label className={cn([cls.label, className])}>
       <input type="checkbox" className={cn([cls.inp, inpCls])} {...other} />
       {label && (
-        <UiTypography tag="p" font="PlusJakartaSans-R" size={16}>
+        <UiTypography tag="p" font="Montserrat-R" size={16}>
           {label}
         </UiTypography>
       )}

@@ -57,7 +57,7 @@ const SignUpModal: FC<Props> = ({ className }) => {
 
   const descriptionMessage: string =
     currentStep === 1
-      ? `Мы отправим вам СМС код на ${formType === EnFormType.email ? 'вашу почту' : 'вашу номер телефона'}`
+      ? `Мы отправим вам код на ${formType === EnFormType.email ? 'вашу почту' : 'ваш номер телефона'}`
       : `Код был отправлен на ${formType === EnFormType.email ? 'указанную почту' : 'указанный телефон'}`
 
   return (
@@ -79,7 +79,7 @@ const SignUpModal: FC<Props> = ({ className }) => {
         {currentStep === 1 ? <FormTypeSwitcher setFormType={setFormType} /> : null}
         <UiStepperLine className={stepperLineCls} current={currentStep} steps={3} />
         {currentStep !== 3 && (
-          <UiTypography font="PlusJakartaSans-R" tag="h2" className={messageInfoCls}>
+          <UiTypography font="Montserrat-R" tag="h2" className={messageInfoCls}>
             {descriptionMessage}
           </UiTypography>
         )}
@@ -96,25 +96,25 @@ const SignUpModal: FC<Props> = ({ className }) => {
         )}
         {currentStep === 1 ? (
           <>
-            <UiCheckbox className="mt-[30px] mb-[10px]" label="Я даю согласие на обработку данных" disabled />
+            <UiCheckbox className="mt-[30px] mb-[10px]" label="Я даю согласие на обработку данных" />
             <UiCheckbox className="mb-[30px]" label="Я соглашаюсь с  политикой сервиса" />
           </>
         ) : null}
         <UiButton wFull type="submit" theme="fill" className={getMessageCls}>
-          <UiTypography font="PlusJakartaSans-R" tag="p">
+          <UiTypography font="Montserrat-R" tag="p">
             {currentStep === 1 ? 'Получить СМС' : currentStep === 2 ? 'Далее' : 'Войти'}
           </UiTypography>
         </UiButton>
         {currentStep === 1 ? (
           <Link href={'#'} className={issueSignInMessageCls}>
-            <UiTypography tag="p" font={'PlusJakartaSans-B'}>
+            <UiTypography tag="p" font={'Montserrat-B'}>
               Проблема при входе?
             </UiTypography>
           </Link>
         ) : currentStep === 2 ? (
           <Link href={'#'}>
-            <UiTypography font="PlusJakartaSans-R" tag="p" className={messageNotComeCls}>
-              Не приходит смс?
+            <UiTypography font="Montserrat-R" tag="p" className={messageNotComeCls}>
+              Не приходит код?
             </UiTypography>
           </Link>
         ) : null}

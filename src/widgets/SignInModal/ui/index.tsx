@@ -52,7 +52,7 @@ const SignInModal: FC<Props> = ({ className }) => {
 
   const descriptionMessage: string =
     currentStep === 1
-      ? `Мы отправим вам СМС код на ${formType === EnFormType.email ? 'вашу почту' : 'вашу номер телефона'}`
+      ? `Мы отправим вам код на ${formType === EnFormType.email ? 'вашу почту' : 'ваш номер телефона'}`
       : `Код был отправлен на ${formType === EnFormType.email ? 'указанную почту' : 'указанный телефон'}`
 
   return (
@@ -73,7 +73,7 @@ const SignInModal: FC<Props> = ({ className }) => {
         </div>
         {currentStep === 1 ? <FormTypeSwitcher setFormType={setFormType} /> : null}
         <UiStepperLine className={stepperLineCls} current={currentStep} steps={2} />
-        <UiTypography font="PlusJakartaSans-R" tag="h2" className={messageInfoCls}>
+        <UiTypography font="Montserrat-R" tag="h2" className={messageInfoCls}>
           {descriptionMessage}
         </UiTypography>
         {currentStep === 1 ? (
@@ -86,16 +86,16 @@ const SignInModal: FC<Props> = ({ className }) => {
           <VerificationBlock />
         )}
         <UiButton wFull type="submit" theme="fill" className={getMessageCls}>
-          <UiTypography font="PlusJakartaSans-R" tag="p">
-            {currentStep === 1 ? 'Получить СМС' : 'Подтвердить'}
+          <UiTypography font="Montserrat-R" tag="p">
+            {currentStep === 1 ? 'Получить код' : 'Подтвердить'}
           </UiTypography>
         </UiButton>
         {currentStep === 1 ? (
           <AuthFormFooter />
         ) : (
           <Link href={'#'}>
-            <UiTypography font="PlusJakartaSans-R" tag="p" className={messageNotComeCls}>
-              Не приходит смс?
+            <UiTypography font="Montserrat-R" tag="p" className={messageNotComeCls}>
+              Не приходит код?
             </UiTypography>
           </Link>
         )}
